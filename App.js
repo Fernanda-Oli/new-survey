@@ -15,7 +15,7 @@ export default function App() {
         headerTransparent: true,
         headerShadowVisible:false
        }} />
-       <Stack.Screen name="Detail" component={DetailScreen} />
+       <Stack.Screen name="Detail" component={DetailScreen} options={{title: 'Survey'}} />
       </Stack.Navigator>
      
     </NavigationContainer>
