@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, Pressable, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet, Pressable } from 'react-native';
 import ListItem from './ListItems';
 import { useNavigation } from '@react-navigation/native';
 
@@ -16,8 +16,8 @@ const ItemList = ({ data }) => {
       <FlatList
         data={data}
         renderItem={({ item }) =>
-          <Pressable style={styles.container} onPress={() => handleItemPress(item.id)}>
-            <ListItem id={item.id} title={item.title} />
+          <Pressable onPress={() => handleItemPress(item.id)}>
+            <ListItem survey={item} />
           </Pressable>
         }
         keyExtractor={(item) => item.id.toString()}
@@ -26,18 +26,5 @@ const ItemList = ({ data }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-      flexDirection: 'row',
-      margin: 16,
-      backgroundColor: 'red',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: 100,
-      borderBottomWidth: 1.5,
-      borderRadius: 10,
-      borderBottomColor: '#ccc',
-  },
-});
 
 export default ItemList;
