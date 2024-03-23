@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import DetailItemList from '../components/surveyDetail/DetailItemList';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Button } from 'react-native-elements';
 
 const DetailScreen = () => {
   const data = [
@@ -24,6 +25,7 @@ const DetailScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     padding: 16,
     marginBottom: 20,
     marginTop: 20,
@@ -41,6 +43,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "gray"
   },
+  teste: {
+    width: 100,
+    height: 60
+  }
 });
 
 export default DetailScreen;

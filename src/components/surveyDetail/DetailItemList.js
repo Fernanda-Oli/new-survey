@@ -1,9 +1,11 @@
-import { Pressable, StyleSheet, View, FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { FlatList, StyleSheet, View } from "react-native";
+import { Button } from "react-native-elements/dist/buttons/Button";
 import DetailListItem from "./DetailListItems";
-import { useState } from "react";
-import { CheckBox } from "react-native-elements";
+
 
 const DetailItemList = ({ data }) => {
+  
     return (
         <View >
             <FlatList
@@ -15,9 +17,40 @@ const DetailItemList = ({ data }) => {
                         questionTitle={item.questionTitle} />
                 }
                 keyExtractor={(item) => item.id.toString()}
+                ListFooterComponent={renderFooter(navigation)}
             />
         </View>
     );
 };
 
+const renderFooter = (navigation) => {
+    const teste = navigation;
+    return (
+        <View style={styles.buttonSend}>
+            <Button title='Enviar' onPress={() => navigation.navigate("CongratsDialog", { screen: "CongratsDialog" })} />
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonSend: {
+        alignItems: 'center',
+        borderRadius: 10,
+        borderColor: "#E3E1E1",
+        borderWidth: 2,
+        backgroundColor: "green",
+        width: 90,
+        height: 40,
+        margin: 16,
+        justifyContent: "center",
+        alignSelf: 'center'
+    }
+});
+
 export default DetailItemList;
+
