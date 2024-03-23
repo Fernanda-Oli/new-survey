@@ -1,11 +1,9 @@
-import { useNavigation } from "@react-navigation/native";
 import { FlatList, StyleSheet, View } from "react-native";
 import { Button } from "react-native-elements/dist/buttons/Button";
 import DetailListItem from "./DetailListItems";
 
 
 const DetailItemList = ({ data }) => {
-  
     return (
         <View >
             <FlatList
@@ -17,17 +15,16 @@ const DetailItemList = ({ data }) => {
                         questionTitle={item.questionTitle} />
                 }
                 keyExtractor={(item) => item.id.toString()}
-                ListFooterComponent={renderFooter(navigation)}
+                ListFooterComponent={renderFooter()}
             />
         </View>
     );
 };
 
-const renderFooter = (navigation) => {
-    const teste = navigation;
+const renderFooter = () => {
     return (
         <View style={styles.buttonSend}>
-            <Button title='Enviar' onPress={() => navigation.navigate("CongratsDialog", { screen: "CongratsDialog" })} />
+            <Button title='Enviar' onPress={() => { console.log('botão enviar ok,') }} />
         </View>
     );
 };

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Modal, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 const LoginDialog = ({ visible, onClose }) => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -13,8 +16,7 @@ const LoginDialog = ({ visible, onClose }) => {
   };
 
   const handleSignIn = () => {
-    // Implemente a lógica de login aqui
-    console.log('Logado com sucesso!');
+    navigation.navigate('TabScreen');
     onClose();
   };
 
@@ -48,8 +50,10 @@ const LoginDialog = ({ visible, onClose }) => {
             value={confirmPassword}
             onChangeText={setConfirmPassword}
           />
-          <Button title="Registrar" onPress={handleRegister} />
-          <Button title="Entrar" onPress={handleSignIn} />
+          <View style={styles.row}>
+            <Button style={styles.button} title="Registrar" onPress={handleRegister} />
+            <Button style={styles.button} title="Entrar" onPress={handleSignIn} />
+          </View>
         </View>
       </View>
     </Modal>
@@ -64,8 +68,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContent: {
-    width:"90%",
-    height:'90%',
+    width: "90%",
+    height: '90%',
     backgroundColor: 'white',
     padding: 20,
     borderRadius: 10,
@@ -84,6 +88,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 10,
   },
+  row:{
+    flexDirection:'row',
+  },
+  button:{
+    marginHorizontal:24,
+    marginVertical:24,
+    padding:20
+  }
 });
 
 export default LoginDialog;

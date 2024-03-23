@@ -5,8 +5,9 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import LoginDialog from '../login_dialog/LoginDialog';
 
-const logo = require("../assets/login.png");
-const menu = require("../assets/menu.png");
+// const logo = require("../assets/login.png");
+const menu = require("..\\assets\\menu.png");
+const logoo = require("..\\assets\\login.png");
 
 const HomeScreen = () => {
     const navigation = useNavigation();
@@ -49,7 +50,7 @@ const HomeScreen = () => {
                 <Text style={styles.headerText}>Home</Text>
                 <TouchableOpacity onPress={handleOpenDialog}>
                     <View style={styles.iconContainer}>
-                        <Image style={styles.icon} source={logo} />
+                        <Image style={styles.icon} source={logoo} />
                         <LoginDialog visible={dialogVisible} onClose={handleCloseDialog} />
                     </View>
                 </TouchableOpacity>

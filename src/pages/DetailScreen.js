@@ -1,8 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import DetailItemList from '../components/surveyDetail/DetailItemList';
-import { ScrollView } from 'react-native-gesture-handler';
-import { Button } from 'react-native-elements';
 
 const DetailScreen = () => {
   const data = [
