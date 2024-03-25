@@ -51,8 +51,8 @@ const HomeScreen = () => {
                 <TouchableOpacity onPress={handleOpenDialog}>
                     <View style={styles.iconContainer}>
                         <Image style={styles.icon} source={logoo} />
-                        <LoginDialog visible={dialogVisible} onClose={handleCloseDialog} />
                     </View>
+                        <LoginDialog visible={dialogVisible} onClose={handleCloseDialog} />
                 </TouchableOpacity>
             </View>
             <ItemList data={data} />
